@@ -5,5 +5,9 @@
       pacman: name=fish
     - name: Change shell
       shell: chsh -s `which fish`
+    - name: Clone omf
+      ansible.builtin.git:
+        repo: 'https://github.com/oh-my-fish/oh-my-fish'
+        dest: /tmp/
     - name: Install omf
-      shell: curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+      shell: /tmp/oh-my-fish/bin/install --offline
