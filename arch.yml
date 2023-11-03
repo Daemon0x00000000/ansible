@@ -8,6 +8,6 @@
     - name: Clone omf
       ansible.builtin.git:
         repo: 'https://github.com/oh-my-fish/oh-my-fish'
-        dest: /tmp/
+        dest: /tmp/omf
     - name: Install omf
-      shell: /tmp/oh-my-fish/bin/install --offline
+      shell: /tmp/omf/bin/install -y  --offline --noninteractive
