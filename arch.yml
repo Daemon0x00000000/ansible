@@ -1,13 +1,12 @@
 - hosts: localhost
   become: true
+  pre_tasks:
+    - name: Update pkgs
+      pacman:
+        update_cache: true
+    - name: Upgrade
+      pacman:
+        upgrade: true
   tasks:
-    - name: Install fish
-      pacman: name=fish
-    - name: Change shell
-      shell: chsh -s `which fish`
-    - name: Clone omf
-      ansible.builtin.git:
-        repo: 'https://github.com/oh-my-fish/oh-my-fish'
-        dest: /tmp/omf
-    - name: Install omf
-      shell: /tmp/omf/bin/install -y  --offline --noninteractive
+    - include: tasks/shell.yml
+    - include: tasks/omf.yml

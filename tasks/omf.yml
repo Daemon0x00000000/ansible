@@ -1,0 +1,4 @@
+- name: ays theme
+  shell: omf i ays
+- name: fzf plugin
+  shell: omf i fzf
