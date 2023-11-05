@@ -1,12 +1,23 @@
 - hosts: localhost
   become: true
+  vars:
+    source_key: "./.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
   pre_tasks:
     - name: Update pkgs
       pacman:
         update_cache: true
+      tags: core
     - name: Upgrade
       pacman:
         upgrade: true
+      tags: 
+        - core
+        - shell
+        - dotfiles
+        - omf
   tasks:
+    - include: tasks/core.yml
     - include: tasks/shell.yml
     - include: tasks/omf.yml
+    - include: tasks/dotfiles.yml

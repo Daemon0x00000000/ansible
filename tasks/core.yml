@@ -1,0 +1,7 @@
+- name: ^_*
+  pacman:
+    name: ["which","stow","unzip","github-cli"]
+  tags: 
+    - core
+    - dotfiles
+
