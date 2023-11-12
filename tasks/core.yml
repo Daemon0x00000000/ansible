@@ -1,6 +1,6 @@
 - name: ^_*
   pacman:
-    name: ["which","stow","unzip","github-cli"]
+    name: ["which","stow","unzip","github-cli", "rclone"]
   tags: 
     - core
     - dotfiles

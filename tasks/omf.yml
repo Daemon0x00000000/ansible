@@ -1,4 +1,4 @@
 - name: ays theme
-  shell: omf i ays
+  shell: /bin/fish -c "omf i ays"
 - name: fzf plugin
-  shell: omf i fzf
+  shell: /bin/fish -c "omf i fzf"

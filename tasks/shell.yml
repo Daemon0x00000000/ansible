@@ -12,14 +12,10 @@
   ansible.builtin.git:
     repo: 'https://github.com/oh-my-fish/oh-my-fish'
     dest: /tmp/omf
-  tags:
-    - omf
 - name: Install omf
   shell: /tmp/omf/bin/install -y  --offline --noninteractive
-  tags:
-    - omf
 - name: Install fzf
   pacman:
-    - name: fzf
+    name: fzf
   tags:
     - shell
