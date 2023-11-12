@@ -1,0 +1,13 @@
+- name: Clone dotfiles
+  ansible.builtin.git:
+    repo: 'https://github.com/Daemon0x00000000/dotfiles'
+    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+    update: yes
+    accept_hostkey: yes
+    version: master
+  tags:
+    - dotfiles
+- name: Setup dotfiles
+  shell: sh ~/.dotfiles/setup.sh
+  tags:
+    - dotfiles

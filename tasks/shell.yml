@@ -1,0 +1,21 @@
+- name: Install fish
+  pacman: name=fish
+  tags: 
+    - shell
+    - omf
+- name: Change shell
+  shell: chsh -s `which fish`
+  tags: 
+    - shell
+    - omf
+- name: Clone omf
+  ansible.builtin.git:
+    repo: 'https://github.com/oh-my-fish/oh-my-fish'
+    dest: /tmp/omf
+- name: Install omf
+  shell: /tmp/omf/bin/install -y  --offline --noninteractive
+- name: Install fzf
+  pacman:
+    name: fzf
+  tags:
+    - shell
